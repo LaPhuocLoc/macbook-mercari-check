@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Sổ tay nhận MacBook M4 Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: sticky progress rail (desktop) + one reading column of 14 ordered phases; tools live inline where they're used */
+:root{
+  --bg:#f1f2f5; --surface:#ffffff; --ink:#14161b; --muted:#5a606d; --line:#dcdfe6;
+  --accent:#2c49c9; --accent-soft:#e7ebfb;
+  --stop:#b91c1c; --stop-bg:#fdeceb; --warn:#975400; --warn-bg:#fff3de; --ok:#17703f; --ok-bg:#e4f3ea;
+  --code-bg:#eaecf1; --code-ink:#1d2230;
+  --f-display:"Bricolage Grotesque","Be Vietnam Pro",system-ui,sans-serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --f-jp:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",var(--f-body);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1014; --surface:#171a20; --ink:#e7e9ee; --muted:#9aa1ae; --line:#2a2f39;
+  --accent:#93a6ff; --accent-soft:#1e2540;
+  --stop:#ff7a72; --stop-bg:#3a1618; --warn:#f2b65c; --warn-bg:#33260f; --ok:#63d394; --ok-bg:#122a1d;
+  --code-bg:#1f232b; --code-ink:#dfe3ec; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#0e1014; --surface:#171a20; --ink:#e7e9ee; --muted:#9aa1ae; --line:#2a2f39;
+  --accent:#93a6ff; --accent-soft:#1e2540;
+  --stop:#ff7a72; --stop-bg:#3a1618; --warn:#f2b65c; --warn-bg:#33260f; --ok:#63d394; --ok-bg:#122a1d;
+  --code-bg:#1f232b; --code-ink:#dfe3ec; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 80px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-inline:16px}}
+
+/* rail */
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);align-self:start;max-height:calc(100vh - 40px);overflow:auto;font-size:14px}
+@media (max-width:900px){.rail{display:none}}
+.rail .meter{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:8px 0 4px}
+.rail .meter i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+.rail .count{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px}
+.rail ol{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:2px}
+.rail a{display:flex;justify-content:space-between;gap:8px;padding:5px 8px;border-radius:6px;text-decoration:none;color:var(--muted)}
+.rail a:hover{background:var(--surface);color:var(--ink)}
+.rail a .n{font-variant-numeric:tabular-nums;font-size:12px}
+.rail a.done{color:var(--ok)}
+.rail button{margin-top:16px}
+
+/* mobile progress bar */
+.mbar{display:none;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.mbar .meter{height:5px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:6px}
+.mbar .meter i{display:block;height:100%;background:var(--ok);width:0}
+.mbar .count{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+@media (max-width:900px){.mbar{display:block}}
+
+/* hero */
+header.hero{padding-block:8px 28px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5.2vw,54px);line-height:1.04;letter-spacing:-.02em;margin:10px 0 14px;text-wrap:balance}
+.lede{max-width:62ch;color:var(--muted);font-size:17px;margin:0}
+.spec{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.spec div{padding:12px 14px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.spec dt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.spec dd{margin:2px 0 0;font-family:var(--f-mono);font-size:14px;font-weight:600}
+
+.deadline{margin-top:20px;background:var(--stop-bg);border-radius:10px;padding:16px 18px;display:grid;gap:6px}
+.deadline strong{color:var(--stop)}
+.deadline p{margin:0}
+
+/* sections */
+section.phase{padding-block:36px 8px;border-top:1px solid var(--line);scroll-margin-top:70px}
+.phase-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.phase-no{font-family:var(--f-mono);font-size:13px;color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+h2{font-family:var(--f-display);font-weight:600;font-size:clamp(24px,3vw,30px);line-height:1.15;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.phase-head .pc{margin-left:auto;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.why{color:var(--muted);max-width:66ch;margin:8px 0 18px}
+h3{font-size:15px;margin:22px 0 8px;font-weight:700}
+
+/* checklist */
+ul.check{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+ul.check li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start}
+ul.check li.on{border-color:var(--ok);}
+ul.check li.on .t{color:var(--muted)}
+ul.check input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--ok);cursor:pointer}
+ul.check label{cursor:pointer}
+ul.check .t{font-weight:600}
+ul.check .d{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+.k{font-family:var(--f-mono);font-size:.88em;background:var(--code-bg);color:var(--code-ink);padding:1px 6px;border-radius:4px;white-space:nowrap}
+.path{font-weight:600}
+
+/* callouts */
+.call{border-radius:10px;padding:14px 16px;margin:14px 0;display:grid;gap:4px}
+.call .tag{font-size:11px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+.call p{margin:0}
+.call.stop{background:var(--stop-bg)} .call.stop .tag{color:var(--stop)}
+.call.warn{background:var(--warn-bg)} .call.warn .tag{color:var(--warn)}
+.call.ok{background:var(--ok-bg)} .call.ok .tag{color:var(--ok)}
+.call.info{background:var(--accent-soft)} .call.info .tag{color:var(--accent)}
+
+/* code */
+.code{position:relative;background:var(--code-bg);border-radius:10px;margin:10px 0 6px}
+.code pre{margin:0;padding:14px 16px;padding-right:76px;overflow-x:auto;font-family:var(--f-mono);font-size:13.5px;line-height:1.55;color:var(--code-ink)}
+.code .cp{position:absolute;top:8px;right:8px}
+.expect{font-size:14px;color:var(--muted);margin:0 0 12px}
+.expect b{color:var(--ink)}
+
+button,.btn{font:inherit;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:var(--surface);border-color:var(--accent)}
+button.small{font-size:12px;padding:4px 9px}
+
+/* tables */
+.tbl{overflow-x:auto;margin:12px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:14.5px;background:var(--surface);border-radius:10px;overflow:hidden}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.g{color:var(--ok);font-weight:600} td.y{color:var(--warn);font-weight:600} td.r{color:var(--stop);font-weight:600}
+tr:last-child td{border-bottom:0}
+
+/* tools */
+ol.steps{margin:6px 0 16px;padding-left:22px;display:grid;gap:4px;max-width:70ch}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin:18px 0}
+.tool h4{margin:0 0 4px;font-size:15px}
+.tool p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+
+/* JP templates */
+.jp{font-family:var(--f-jp);font-size:15px;line-height:1.8;white-space:pre-wrap}
+
+.src{font-size:13.5px;color:var(--muted)}
+.src li{margin:4px 0}
+footer{margin-top:40px;font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="rail" aria-label="Mục lục">
+    <div class="eyebrow">Tiến độ</div>
+    <div class="meter"><i id="railBar"></i></div>
+    <div class="count" id="railCount">0 / 0 mục</div>
+    <ol id="toc"></ol>
+    <button class="small" id="resetAll" type="button">Bỏ chọn tất cả</button>
+    <div id="resetConfirm" hidden style="margin-top:8px;font-size:13px">Chắc chưa? <button class="small" id="resetYes" type="button">Xoá tiến độ</button> <button class="small" id="resetNo" type="button">Thôi</button></div>
+  </nav>
+
+  <main>
+    <div class="mbar"><div class="count" id="mCount">0 / 0 mục</div><div class="meter"><i id="mBar"></i></div></div>
+
+    <header class="hero">
+      <div class="eyebrow">Mua qua Mercari · máy cũ · checklist A → Z</div>
+      <h1>Sổ tay nhận MacBook Pro M4 Pro</h1>
+      <p class="lede">Làm theo đúng thứ tự từ trên xuống. Mỗi mục tick xong sẽ được nhớ trên trình duyệt này. Các phần có nhãn <b style="color:var(--stop)">DỪNG LẠI</b> là lý do đủ để không nhận máy.</p>
+
+      <dl class="spec">
+        <div><dt>Model</dt><dd>MacBook Pro 16″ 2024</dd></div>
+        <div><dt>Chip</dt><dd>M4 Pro 14 CPU · 20 GPU</dd></div>
+        <div><dt>RAM</dt><dd>48 GB</dd></div>
+        <div><dt>SSD</dt><dd>512 GB (~500 GB)</dd></div>
+        <div><dt>Pin</dt><dd>100 Wh · max 1000 cycle</dd></div>
+        <div><dt>Sạc zin</dt><dd>140 W USB‑C + MagSafe 3</dd></div>
+      </dl>
+
+      <div class="deadline">
+        <p><strong>Đừng bấm 受取評価 (đánh giá nhận hàng) cho tới khi làm xong cả trang này.</strong> Bấm là tiền chuyển cho người bán, gần như hết đường đòi lại.</p>
+        <p>Nếu không đánh giá, Mercari tự hoàn tất giao dịch: <b>らくらくメルカリ便</b> là 13:00 ngày thứ 2 sau khi trạng thái “配達完了”; <b>ゆうゆうメルカリ便 / cách gửi khác</b> là 13:00 ngày thứ 9 sau thông báo gửi hàng. Có vấn đề thì nhắn 取引メッセージ cho người bán hoặc liên hệ 事務局 <b>trước hạn đó</b> để được gia hạn.</p>
+      </div>
+    </header>
+
+    <!-- 0 -->
+    <section class="phase" id="p0" data-title="Trước khi hàng về">
+      <div class="phase-head"><span class="phase-no">00</span><h2>Tối nay, trước khi hàng về</h2><span class="pc"></span></div>
+      <p class="why">Hỏi người bán vài câu bằng tin nhắn giao dịch. Câu trả lời bằng văn bản trên Mercari là bằng chứng nếu sau này phải khiếu nại. Mẫu tin nhắn tiếng Nhật có ở <a href="#help">cuối trang</a>.</p>
+      <ul class="check">
+        <li><input type="checkbox" id="c0a"><label for="c0a"><span class="t">Xin số serial của máy</span><span class="d">Serial nằm ở mặt đáy máy, trên hộp, và trong “About This Mac”. Ngày mai bạn sẽ so ba chỗ này với nhau.</span></label></li>
+        <li><input type="checkbox" id="c0b"><label for="c0b"><span class="t">Tra serial trên checkcoverage.apple.com</span><span class="d">Kết quả phải ghi đúng <b>MacBook Pro (16-inch, 2024)</b>. Xem luôn còn bảo hành / AppleCare+ không. Máy mua sớm nhất từ 11/2024 nên bảo hành 1 năm gốc thường đã hết, trừ khi có AppleCare+.</span></label></li>
+        <li><input type="checkbox" id="c0c"><label for="c0c"><span class="t">Hỏi đã tắt “Find My / 探す” và đăng xuất Apple ID chưa</span><span class="d">Apple không còn công cụ công khai để tra Activation Lock theo serial, nên chỉ có thể hỏi trước và kiểm tra khi máy về.</span></label></li>
+        <li><input type="checkbox" id="c0d"><label for="c0d"><span class="t">Hỏi máy có phải máy công ty / trường học không (MDM)</span><span class="d">Máy doanh nghiệp đăng ký trong Apple Business Manager sẽ hiện màn hình “Remote Management” khi cài đặt lại, kể cả sau khi đã xoá sạch.</span></label></li>
+        <li><input type="checkbox" id="c0e"><label for="c0e"><span class="t">Hỏi lịch sử sửa chữa, hoá đơn mua (領収書/納品書), AppleCare+</span><span class="d">Hoá đơn gốc giúp chứng minh nguồn gốc máy và cần nếu muốn dùng AppleCare+.</span></label></li>
+        <li><input type="checkbox" id="c0f"><label for="c0f"><span class="t">Chuẩn bị đồ test</span><span class="d">Điện thoại để quay video · Wi‑Fi · USB/ổ cứng USB‑C · thẻ SD · cáp + màn hình HDMI (nếu có) · tai nghe 3.5mm hoặc AirPods · đèn pin điện thoại · ngón tay để thử Touch ID.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 1 -->
+    <section class="phase" id="p1" data-title="Nhận hàng & quay video">
+      <div class="phase-head"><span class="phase-no">01</span><h2>Nhận hàng và quay video mở hộp</h2><span class="pc"></span></div>
+      <p class="why">Video liền mạch từ lúc gói hàng còn nguyên là bằng chứng mạnh nhất khi làm việc với 事務局.</p>
+      <ul class="check">
+        <li><input type="checkbox" id="c1a"><label for="c1a"><span class="t">Chụp ảnh gói hàng và nhãn vận chuyển trước khi mở</span><span class="d">Nếu thùng móp, rách, ướt: chụp thật rõ trước khi làm gì khác.</span></label></li>
+        <li><input type="checkbox" id="c1b"><label for="c1b"><span class="t">Quay một video không cắt từ lúc rạch băng keo tới lúc máy lên màn hình đầu tiên</span><span class="d">Quay rõ cả 4 góc máy, mặt đáy (serial), màn hình, phụ kiện.</span></label></li>
+        <li><input type="checkbox" id="c1c"><label for="c1c"><span class="t">Đối chiếu với nội dung tin đăng</span><span class="d">Mở lại trang sản phẩm trên Mercari: hộp, sạc, cáp, tình trạng trầy xước mô tả có khớp không.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 2 -->
+    <section class="phase" id="p2" data-title="Ngoại hình & phụ kiện">
+      <div class="phase-head"><span class="phase-no">02</span><h2>Ngoại hình và phụ kiện</h2><span class="pc"></span></div>
+      <ul class="check">
+        <li><input type="checkbox" id="c2a"><label for="c2a"><span class="t">Serial ở đáy máy = serial trên hộp = serial người bán gửi</span><span class="d">Lệch nhau nghĩa là vỏ hoặc hộp đã bị tráo.</span></label></li>
+        <li><input type="checkbox" id="c2b"><label for="c2b"><span class="t">Vỏ: móp góc, cong, trầy sâu</span><span class="d">Móp ở góc thường do rơi, có thể đi kèm hỏng bên trong. Đặt máy lên mặt bàn phẳng, ấn từng góc xem có cập kênh không.</span></label></li>
+        <li><input type="checkbox" id="c2c"><label for="c2c"><span class="t">Ốc đáy máy không toè đầu, chân cao su đủ 4</span><span class="d">Ốc toè hoặc thiếu là dấu hiệu máy đã bị mở ra.</span></label></li>
+        <li><input type="checkbox" id="c2d"><label for="c2d"><span class="t">Bản lề chắc, mở một tay được, giữ góc không tự sập</span></label></li>
+        <li><input type="checkbox" id="c2e"><label for="c2e"><span class="t">Soi đèn pin vào các cổng: không gỉ xanh, không cặn bẩn</span><span class="d">Gỉ trong cổng hoặc phím dính, mùi lạ là dấu hiệu từng vào nước.</span></label></li>
+        <li><input type="checkbox" id="c2f"><label for="c2f"><span class="t">Bàn phím đúng layout như tin đăng (JIS hay US)</span><span class="d">JIS có phím 英数 / かな cạnh phím cách và phím Enter hình chữ L ngược. US có Enter ngang dài.</span></label></li>
+        <li><input type="checkbox" id="c2g"><label for="c2g"><span class="t">Sạc 140W USB‑C + cáp USB‑C sang MagSafe 3 (nếu tin đăng có ghi)</span><span class="d">Mặt củ sạc có in “140W”. Sạc nhái thường nhẹ, chữ in mờ, cạnh bavia.</span></label></li>
+        <li><input type="checkbox" id="c2h"><label for="c2h"><span class="t">Màn hình nhìn khi tắt: không vết nứt, không bong lớp phủ</span><span class="d">Bong lớp chống loá ở viền là lỗi thẩm mỹ phổ biến trên máy dùng nhiều. Nếu tin đăng ghi nano-texture thì mặt kính sẽ mờ như giấy.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 3 -->
+    <section class="phase" id="p3" data-title="Bật máy lần đầu">
+      <div class="phase-head"><span class="phase-no">03</span><h2>Bật máy lần đầu: hai màn hình quyết định</h2><span class="pc"></span></div>
+      <p class="why">Người bán tử tế sẽ xoá sạch máy trước khi gửi, nên bạn sẽ thấy trợ lý cài đặt (chọn ngôn ngữ, quốc gia). Phải <b>kết nối Wi‑Fi</b> thì máy mới hỏi Apple xem có bị khoá hay không, nên đừng bỏ qua bước Wi‑Fi.</p>
+
+      <div class="call stop"><span class="tag">Dừng lại · Activation Lock</span><p>Màn hình “<b>Activation Lock</b> / アクティベーションロック” đòi Apple ID và mật khẩu của chủ cũ. Không có cách hợp pháp nào tự gỡ. Chỉ người bán gỡ được (qua iCloud.com → Find Devices → chọn máy → Remove from Account). Không gỡ được thì trả hàng.</p></div>
+      <div class="call stop"><span class="tag">Dừng lại · Remote Management</span><p>Màn hình “<b>Remote Management</b> / リモートマネジメント” ghi tên một tổ chức “có thể tự động cấu hình máy Mac này”. Đây là máy đăng ký MDM/DEP của doanh nghiệp. <b>Không bấm Enroll</b>, quay video màn hình đó, nhắn người bán. Các mẹo “bypass MDM” trên mạng không giải quyết gốc: cập nhật hoặc cài lại macOS là nó quay lại.</p></div>
+
+      <ul class="check">
+        <li><input type="checkbox" id="c3a"><label for="c3a"><span class="t">Máy khởi động vào trợ lý cài đặt, không đòi mật khẩu đăng nhập lạ</span><span class="d">Nếu lên màn hình đăng nhập có tài khoản của người bán: máy chưa được xoá. Không tự mò mật khẩu, nhắn người bán. Hướng xử lý ở <a href="#help">bảng cuối trang</a>.</span></label></li>
+        <li><input type="checkbox" id="c3b"><label for="c3b"><span class="t">Đã kết nối Wi‑Fi và không thấy Activation Lock</span></label></li>
+        <li><input type="checkbox" id="c3c"><label for="c3c"><span class="t">Không thấy màn hình Remote Management</span></label></li>
+        <li><input type="checkbox" id="c3d"><label for="c3d"><span class="t">Tạo tài khoản tạm để test, có thể bỏ qua đăng nhập Apple ID</span><span class="d">Tài khoản thật của bạn sẽ đăng nhập ở bước <a href="#p12">11</a>, sau khi xoá trắng lần cuối. Như vậy nếu phải trả máy, bạn không để lại dữ liệu gì.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 4 -->
+    <section class="phase" id="p4" data-title="Soi khoá & MDM">
+      <div class="phase-head"><span class="phase-no">04</span><h2>Soi khoá và MDM từ bên trong macOS</h2><span class="pc"></span></div>
+      <p class="why">Mở <b>Terminal</b> (Cmd + Space, gõ “Terminal”). Dán từng lệnh, Enter. Lệnh có <span class="k">sudo</span> sẽ hỏi mật khẩu tài khoản tạm vừa tạo; khi gõ sẽ không hiện ký tự, cứ gõ rồi Enter.</p>
+
+      <h3>Trạng thái Activation Lock</h3>
+      <div class="code"><pre>system_profiler SPHardwareDataType | grep -i "activation lock"</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Cần thấy: <b>Activation Lock Status: Disabled</b></p>
+
+      <h3>Có bị ghi danh MDM / DEP không</h3>
+      <div class="code"><pre>sudo profiles status -type enrollment</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Cần thấy cả hai dòng là <b>No</b>: <span class="k">Enrolled via DEP: No</span> và <span class="k">MDM enrollment: No</span></p>
+
+      <div class="code"><pre>sudo profiles show -type enrollment</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Lệnh này hỏi thẳng máy chủ Apple. Tốt nhất là một lỗi kiểu <b>“Client is not DEP enabled”</b>. Nếu nó in ra cấu hình có tên công ty, URL máy chủ MDM… thì serial này đang nằm trong Apple Business Manager của tổ chức đó, dù hiện tại máy chưa bị quản lý.</p>
+
+      <div class="code"><pre>sudo profiles list</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Cần thấy: <b>There are no configuration profiles installed</b></p>
+
+      <ul class="check">
+        <li><input type="checkbox" id="c4a"><label for="c4a"><span class="t">Activation Lock Status: Disabled</span></label></li>
+        <li><input type="checkbox" id="c4b"><label for="c4b"><span class="t">Enrolled via DEP: No · MDM enrollment: No</span></label></li>
+        <li><input type="checkbox" id="c4c"><label for="c4c"><span class="t">profiles show không trả về cấu hình của tổ chức nào</span></label></li>
+        <li><input type="checkbox" id="c4d"><label for="c4d"><span class="t">Không có profile nào</span><span class="d">Kiểm tra thêm bằng giao diện: <span class="path">System Settings → General → Device Management</span> phải trống. (Bản macOS cũ để ở Privacy &amp; Security → Profiles.)</span></label></li>
+        <li><input type="checkbox" id="c4e"><label for="c4e"><span class="t">Vào được Recovery mà không bị hỏi mật khẩu lạ</span><span class="d">Tắt máy → giữ nút nguồn tới khi hiện “Loading startup options” → Options → Continue. Máy chỉ được hỏi mật khẩu tài khoản tạm của bạn. Nếu đòi “Recovery Lock” hoặc mật khẩu bạn không biết: máy bị MDM khoá. Thoát ra bằng menu Apple → Restart.</span></label></li>
+      </ul>
+      <div class="call warn"><span class="tag">Lưu ý</span><p>Kết quả “No” ở trên rất tốt nhưng chưa tuyệt đối. Bằng chứng cuối cùng là lần xoá trắng và cài đặt lại ở bước 11: nếu máy thuộc DEP, màn hình Remote Management sẽ hiện ra ở đó.</p></div>
+    </section>
+
+    <!-- 5 -->
+    <section class="phase" id="p5" data-title="Đúng cấu hình">
+      <div class="phase-head"><span class="phase-no">05</span><h2>Đúng cấu hình đã trả tiền</h2><span class="pc"></span></div>
+      <div class="code"><pre>system_profiler SPHardwareDataType | grep -E "Model Name|Model Number|Chip|Total Number of Cores|Memory|Serial Number"
+system_profiler SPDisplaysDataType | grep -E "Chipset Model|Total Number of Cores"
+diskutil info disk0 | grep "Disk Size"</pre><button class="small cp" type="button">Copy</button></div>
+      <div class="tbl"><table>
+        <thead><tr><th>Dòng</th><th>Phải là</th></tr></thead>
+        <tbody>
+          <tr><td>Model Name</td><td>MacBook Pro</td></tr>
+          <tr><td>Chip</td><td>Apple M4 Pro</td></tr>
+          <tr><td>Total Number of Cores (CPU)</td><td>14 (10 performance and 4 efficiency)</td></tr>
+          <tr><td>Total Number of Cores (GPU)</td><td>20</td></tr>
+          <tr><td>Memory</td><td>48 GB</td></tr>
+          <tr><td>Disk Size</td><td>khoảng 500 GB (SSD 512 GB hiển thị như vậy là bình thường)</td></tr>
+          <tr><td>Serial Number</td><td>trùng đáy máy, hộp, và checkcoverage</td></tr>
+        </tbody>
+      </table></div>
+      <ul class="check">
+        <li><input type="checkbox" id="c5a"><label for="c5a"><span class="t">Chip M4 Pro, CPU 14 nhân, GPU 20 nhân</span><span class="d">Bản 16″ M4 Pro chỉ có cấu hình 14/20. Nếu thấy “M4 Max” thì lại là máy khác hoàn toàn với tin đăng (hiếm, nhưng phải khớp).</span></label></li>
+        <li><input type="checkbox" id="c5b"><label for="c5b"><span class="t">RAM 48 GB</span></label></li>
+        <li><input type="checkbox" id="c5c"><label for="c5c"><span class="t">SSD ~500 GB</span></label></li>
+        <li><input type="checkbox" id="c5d"><label for="c5d"><span class="t">Serial khớp ở cả 4 nơi</span></label></li>
+        <li><input type="checkbox" id="c5e"><label for="c5e"><span class="t">Lịch sử linh kiện (macOS Tahoe 26 trở lên)</span><span class="d"><span class="path">System Settings → General → About → Parts &amp; Service</span>. Mục này chỉ xuất hiện khi máy từng được sửa. Nếu có, xem từng linh kiện: <b>Genuine</b> là ổn; <b>Unknown</b>, <b>Used</b>, <b>Unverified</b> (bo mạch) là chuyện phải hỏi người bán.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 6 -->
+    <section class="phase" id="p6" data-title="Pin & sạc">
+      <div class="phase-head"><span class="phase-no">06</span><h2>Pin và sạc</h2><span class="pc"></span></div>
+      <div class="code"><pre>system_profiler SPPowerDataType | grep -E "Cycle Count|Condition|Maximum Capacity|Wattage"</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Hoặc xem bằng giao diện: <span class="path">System Settings → Battery → nút (i) cạnh Battery Health</span>.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Chỉ số</th><th>Tốt</th><th>Chấp nhận được</th><th>Cân nhắc trả / mặc cả</th></tr></thead>
+        <tbody>
+          <tr><td>Maximum Capacity</td><td class="g">≥ 90%</td><td class="y">85–89%</td><td class="r">&lt; 85%, hoặc tin đăng ghi cao hơn thực tế</td></tr>
+          <tr><td>Cycle Count</td><td class="g">&lt; 200</td><td class="y">200–400</td><td class="r">&gt; 400 cho máy chưa tới 2 năm tuổi</td></tr>
+          <tr><td>Condition</td><td class="g">Normal</td><td></td><td class="r">Service Recommended</td></tr>
+        </tbody>
+      </table></div>
+      <ul class="check">
+        <li><input type="checkbox" id="c6a"><label for="c6a"><span class="t">Ghi lại Maximum Capacity và Cycle Count, so với tin đăng</span></label></li>
+        <li><input type="checkbox" id="c6b"><label for="c6b"><span class="t">Cắm sạc 140W qua MagSafe: đèn trên đầu MagSafe sáng (cam = đang sạc, xanh = đầy)</span></label></li>
+        <li><input type="checkbox" id="c6c"><label for="c6c"><span class="t">Wattage báo 140 khi cắm sạc kèm theo</span><span class="d">Dòng <span class="k">Wattage (W)</span> trong lệnh trên chỉ hiện khi đang cắm sạc.</span></label></li>
+        <li><input type="checkbox" id="c6d"><label for="c6d"><span class="t">Rút sạc, dùng 15–20 phút xem % tụt có hợp lý không</span><span class="d">Lướt web nhẹ, độ sáng vừa: máy này tụt khoảng vài % mỗi 15 phút. Tụt 10%+ là bất thường.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 7 -->
+    <section class="phase" id="p7" data-title="Apple Diagnostics">
+      <div class="phase-head"><span class="phase-no">07</span><h2>Bộ test chính chủ: Diagnostics &amp; Repair</h2><span class="pc"></span></div>
+      <p class="why">Mac chip Apple chạy macOS Tahoe 26 trở lên có sẵn chế độ <b>Diagnostics &amp; Repair</b>. Apple tự cho hiện màu kiểm tra màn hình, bắt bạn nhấn từng phím, chạm khắp trackpad, phát loa và thu micro. Không cần cài gì, không cần thiết bị thứ hai.</p>
+
+      <h3>Cách vào</h3>
+      <ol class="steps">
+        <li>Kiểm tra phiên bản: menu Apple → About This Mac. Nếu thấp hơn macOS 26, cập nhật trước ở <span class="path">System Settings → General → Software Update</span>.</li>
+        <li>Tháo hết thiết bị ngoài, <b>cắm sạc</b>, đặt máy trên mặt bàn cứng, thoáng. Tắt máy.</li>
+        <li>Giữ nút nguồn (nút Touch ID) tới khi hiện <b>“Loading startup options…”</b> thì nhả.</li>
+        <li>Ở màn hình startup options, nhấn giữ <span class="k">Cmd + D</span>.</li>
+        <li>Khi hiện <b>Diagnostics &amp; Repair</b>: Continue → chọn Wi‑Fi → đồng ý điều khoản.</li>
+        <li>Chọn <b>Run Diagnostics</b>, rồi chọn từng bộ test bên dưới và làm theo hướng dẫn trên màn hình.</li>
+      </ol>
+
+      <div class="tbl"><table>
+        <thead><tr><th>Bộ test</th><th>Kiểm tra gì</th></tr></thead>
+        <tbody>
+          <tr><td>Mac Resource Inspector</td><td>Quét nhanh toàn bộ linh kiện và chạy vài test chức năng ngắn. Chạy cái này đầu tiên.</td></tr>
+          <tr><td>Display Anomalies</td><td>Hiện các màu và hoa văn để bạn tìm điểm chết, điểm kẹt, bụi dưới màn.</td></tr>
+          <tr><td>Keyboard</td><td>Từng phím có nhận không, đèn nền bàn phím, đèn Caps Lock.</td></tr>
+          <tr><td>Trackpad</td><td>Mọi vùng trên trackpad có nhận chạm không.</td></tr>
+          <tr><td>Audio</td><td>Loa và micro. Cắm tai nghe có dây để test luôn jack 3.5mm.</td></tr>
+        </tbody>
+      </table></div>
+
+      <ul class="check">
+        <li><input type="checkbox" id="c7a"><label for="c7a"><span class="t">Mac Resource Inspector: không báo lỗi</span></label></li>
+        <li><input type="checkbox" id="c7b"><label for="c7b"><span class="t">Display Anomalies: không điểm chết, điểm kẹt, bụi</span><span class="d">Làm trong phòng hơi tối, độ sáng cao, nhìn kỹ từng vùng ở mỗi màu.</span></label></li>
+        <li><input type="checkbox" id="c7c"><label for="c7c"><span class="t">Keyboard: đủ mọi phím, đèn nền đều, đèn Caps Lock sáng</span><span class="d">Để ý thêm cảm giác: phím nào lún, kẹt, phải ấn mạnh mới nhận thì ghi lại dù test vẫn qua.</span></label></li>
+        <li><input type="checkbox" id="c7d"><label for="c7d"><span class="t">Trackpad: mọi vùng đều nhận</span></label></li>
+        <li><input type="checkbox" id="c7e"><label for="c7e"><span class="t">Audio: loa, micro, jack tai nghe đều qua</span><span class="d">Khi loa phát, nghe thêm xem có tiếng rè ở âm lượng cao không.</span></label></li>
+        <li><input type="checkbox" id="c7f"><label for="c7f"><span class="t">Chụp màn hình hoặc chụp ảnh kết quả</span><span class="d">Có lỗi thì đây là bằng chứng gửi người bán và 事務局.</span></label></li>
+      </ul>
+      <div class="call info"><span class="tag">Nếu không vào được chế độ này</span><p>Máy dưới macOS 26 sẽ vào bản Apple Diagnostics cũ (chỉ quét tự động, báo “No issues found” hoặc mã lỗi). Khi đó test bàn phím bằng <b>Keyboard Viewer</b> có sẵn trong macOS: <span class="path">System Settings → Keyboard → Input Sources</span> bật “Show Input menu in menu bar”, rồi bấm biểu tượng bàn phím trên thanh menu → Show Keyboard Viewer. Phím nào nhấn sẽ sáng lên trên hình bàn phím.</p></div>
+    </section>
+
+    <!-- 8 -->
+    <section class="phase" id="p8" data-title="Phần Diagnostics không test">
+      <div class="phase-head"><span class="phase-no">08</span><h2>Những gì Diagnostics không test</h2><span class="pc"></span></div>
+      <p class="why">Mấy mục này phải tự nhìn và tự thử, mỗi mục chỉ mất vài phút.</p>
+      <ul class="check">
+        <li><input type="checkbox" id="c8a"><label for="c8a"><span class="t">Màn hình nền đen trong phòng tối: không có vùng hở sáng lớn</span><span class="d">Mở một ảnh đen toàn màn hình. Màn mini-LED có quầng sáng nhẹ quanh vật sáng trên nền đen (blooming), đó là bình thường. Một dải sáng cố định ở mép hoặc góc thì không.</span></label></li>
+        <li><input type="checkbox" id="c8b"><label for="c8b"><span class="t">Gập mở màn hình chậm từ 30° tới 130°: hình không nháy, không sọc</span><span class="d">Nháy ở một góc nhất định là dấu hiệu cáp màn hình có vấn đề.</span></label></li>
+        <li><input type="checkbox" id="c8c"><label for="c8c"><span class="t">ProMotion 120Hz đang bật, độ sáng chạy hết dải, True Tone bật tắt được</span><span class="d"><span class="path">System Settings → Displays → Refresh Rate</span> phải có ProMotion.</span></label></li>
+        <li><input type="checkbox" id="c8d"><label for="c8d"><span class="t">Force click và cử chỉ trackpad</span><span class="d">Nhấn mạnh thêm một nấc lên một từ trong Safari phải ra tra từ điển. Thử cuộn 2 ngón, vuốt 3–4 ngón, zoom. Trackpad dùng rung giả lập, tắt máy thì ấn không “click” là bình thường.</span></label></li>
+        <li><input type="checkbox" id="c8e"><label for="c8e"><span class="t">Đăng ký và dùng được Touch ID</span><span class="d"><span class="path">System Settings → Touch ID &amp; Password → Add Fingerprint</span>, rồi khoá máy (Ctrl+Cmd+Q) và mở bằng vân tay. Lỗi Touch ID thường do đã thay bo mạch không chuẩn.</span></label></li>
+        <li><input type="checkbox" id="c8f"><label for="c8f"><span class="t">Camera: mở Photo Booth, hình rõ, không đốm, đèn xanh cạnh camera sáng</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 9 -->
+    <section class="phase" id="p9" data-title="Cổng & kết nối">
+      <div class="phase-head"><span class="phase-no">09</span><h2>Cổng và kết nối</h2><span class="pc"></span></div>
+      <p class="why">Máy có: bên trái MagSafe 3, 2 cổng Thunderbolt 5 (USB‑C), jack tai nghe; bên phải 1 cổng Thunderbolt 5, HDMI, khe thẻ SDXC.</p>
+      <ul class="check">
+        <li><input type="checkbox" id="c9a"><label for="c9a"><span class="t">Sạc được qua cả 3 cổng USB‑C</span><span class="d">Cắm cáp USB‑C của sạc 140W vào từng cổng, xem biểu tượng pin có tia sét.</span></label></li>
+        <li><input type="checkbox" id="c9b"><label for="c9b"><span class="t">Nhận USB / ổ cứng ở cả 3 cổng USB‑C</span></label></li>
+        <li><input type="checkbox" id="c9c"><label for="c9c"><span class="t">HDMI xuất hình ra màn hình / TV</span></label></li>
+        <li><input type="checkbox" id="c9d"><label for="c9d"><span class="t">Khe thẻ SD đọc được thẻ</span></label></li>
+        <li><input type="checkbox" id="c9e"><label for="c9e"><span class="t">Wi‑Fi ổn định, Bluetooth kết nối được tai nghe / chuột</span><span class="d">Mở một video 4K trên YouTube vài phút để thử Wi‑Fi.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 10 -->
+    <section class="phase" id="p10" data-title="SSD & tải nặng">
+      <div class="phase-head"><span class="phase-no">10</span><h2>SSD và chạy tải nặng</h2><span class="pc"></span></div>
+
+      <h3>Sức khoẻ SSD (tuỳ chọn, cần cài Homebrew)</h3>
+      <div class="code"><pre>brew install smartmontools
+smartctl -a disk0 | grep -E "SMART overall|Available Spare:|Percentage Used|Data Units Written|Power On Hours"</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Cần thấy: <b>PASSED</b>, Available Spare <b>100%</b>, Percentage Used <b>0–3%</b>. Data Units Written vài chục TB với máy dưới 2 năm là dùng rất nặng (thường là swap RAM hoặc render nhiều).</p>
+
+      <h3>Chạy tải nặng 10 phút</h3>
+      <p class="expect">Cách dễ nhất: tải <b>Cinebench 2024</b> (miễn phí từ Maxon), chạy bài Multi Core với chế độ 10 phút. Hoặc dán lệnh dưới đây để ép cả 14 nhân CPU chạy 100%:</p>
+      <div class="code"><pre>for i in $(seq 14); do yes > /dev/null & done; sleep 600; killall yes</pre><button class="small cp" type="button">Copy</button></div>
+      <p class="expect">Muốn dừng sớm: mở Terminal khác gõ <span class="k">killall yes</span>.</p>
+
+      <ul class="check">
+        <li><input type="checkbox" id="c10a"><label for="c10a"><span class="t">SSD: PASSED, spare 100%, Percentage Used thấp</span></label></li>
+        <li><input type="checkbox" id="c10b"><label for="c10b"><span class="t">Chạy tải 10 phút: máy không tắt đột ngột, không treo, không kernel panic</span></label></li>
+        <li><input type="checkbox" id="c10c"><label for="c10c"><span class="t">Quạt quay đều, không có tiếng lạch cạch hay rít</span><span class="d">Máy 16″ khá êm, khi tải nặng nghe tiếng gió là bình thường.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 12 -->
+    <section class="phase" id="p12" data-title="Xoá trắng & nhận máy">
+      <div class="phase-head"><span class="phase-no">11</span><h2>Xoá trắng và biến máy thành của bạn</h2><span class="pc"></span></div>
+      <p class="why">Lần xoá này vừa dọn dữ liệu test, vừa là phép thử cuối cùng: trợ lý cài đặt chạy lại từ đầu và sẽ lộ Activation Lock hoặc Remote Management nếu còn sót.</p>
+      <ul class="check">
+        <li><input type="checkbox" id="c12a"><label for="c12a"><span class="t">Erase All Content and Settings</span><span class="d"><span class="path">System Settings → General → Transfer or Reset → Erase All Content and Settings</span>. Máy tự khởi động lại và kích hoạt lại.</span></label></li>
+        <li><input type="checkbox" id="c12b"><label for="c12b"><span class="t">Lần cài đặt này cũng không có Activation Lock hay Remote Management</span></label></li>
+        <li><input type="checkbox" id="c12c"><label for="c12c"><span class="t">Đăng nhập Apple ID của bạn, bật Find My</span><span class="d">Kiểm tra trên iPhone hoặc icloud.com/find thấy con Mac này trong danh sách thiết bị của bạn.</span></label></li>
+        <li><input type="checkbox" id="c12d"><label for="c12d"><span class="t">Bật FileVault</span><span class="d"><span class="path">System Settings → Privacy &amp; Security → FileVault</span>. Lưu recovery key ở nơi an toàn.</span></label></li>
+        <li><input type="checkbox" id="c12e"><label for="c12e"><span class="t">Cập nhật macOS bản mới nhất</span><span class="d"><span class="path">System Settings → General → Software Update</span>. Sau khi cập nhật, chạy lại lệnh <span class="k">sudo profiles status -type enrollment</span> một lần cho yên tâm.</span></label></li>
+      </ul>
+    </section>
+
+    <!-- 13 -->
+    <section class="phase" id="p13" data-title="Chốt trên Mercari">
+      <div class="phase-head"><span class="phase-no">12</span><h2>Chốt giao dịch trên Mercari</h2><span class="pc"></span></div>
+      <ul class="check">
+        <li><input type="checkbox" id="c13a"><label for="c13a"><span class="t">Mọi mục ở trên đều ổn, hoặc đã thoả thuận xong với người bán</span></label></li>
+        <li><input type="checkbox" id="c13b"><label for="c13b"><span class="t">Lưu video mở hộp, ảnh chụp kết quả lệnh và pin vào chỗ an toàn</span><span class="d">Giữ ít nhất vài tuần, phòng lỗi phát sinh muộn.</span></label></li>
+        <li><input type="checkbox" id="c13c"><label for="c13c"><span class="t">Bấm 受取評価 và đánh giá người bán</span></label></li>
+      </ul>
+      <div class="call ok"><span class="tag">Xong</span><p>Tới đây là máy sạch khoá, đúng cấu hình, chạy ổn, đứng tên Apple ID của bạn.</p></div>
+    </section>
+
+    <!-- help -->
+    <section class="phase" id="help" data-title="Khi có vấn đề">
+      <div class="phase-head"><span class="phase-no">!!</span><h2>Khi có vấn đề</h2><span class="pc"></span></div>
+      <p class="why">Nguyên tắc chung: <b>chưa bấm 受取評価</b>, nhắn người bán qua 取引メッセージ ngay (để giữ thời hạn), lưu bằng chứng, rồi liên hệ 事務局 từ màn hình giao dịch (“この取引について問い合わせる” hoặc mục お問い合わせ) nếu người bán không hợp tác.</p>
+      <div class="tbl"><table>
+        <thead><tr><th>Gặp</th><th>Mức độ</th><th>Làm gì</th></tr></thead>
+        <tbody>
+          <tr><td>Activation Lock</td><td class="r">Trả hàng nếu không gỡ được</td><td>Người bán vào iCloud.com → Find Devices → chọn Mac này → Remove from Account, rồi bạn khởi động lại máy. Không gỡ được thì yêu cầu hoàn tiền.</td></tr>
+          <tr><td>Remote Management / MDM / DEP</td><td class="r">Trả hàng nếu không gỡ được</td><td>Chỉ tổ chức sở hữu mới gỡ được serial khỏi Apple Business Manager. Không dùng mẹo bypass. Máy công ty bán ra ngoài còn có rủi ro là tài sản bị chiếm dụng.</td></tr>
+          <tr><td>Máy còn tài khoản / mật khẩu người bán</td><td class="y">Nhờ người bán</td><td>Xin mật khẩu để tự đăng xuất Apple ID và xoá máy, hoặc người bán gỡ máy từ xa trên iCloud.com. Sau đó vẫn làm lại từ bước 03.</td></tr>
+          <tr><td>Sai cấu hình (RAM, SSD, chip)</td><td class="r">Trả hàng</td><td>Hàng khác mô tả (説明と違う). Chụp màn hình lệnh ở bước 05.</td></tr>
+          <tr><td>Lỗi phần cứng không ghi trong tin</td><td class="r">Trả hàng / thương lượng</td><td>Điểm chết, phím hỏng, loa rè, cổng chết, Diagnostics báo lỗi. Gửi video, ảnh khi liên hệ 事務局.</td></tr>
+          <tr><td>Pin thấp hơn mô tả</td><td class="y">Thương lượng</td><td>Nêu con số thực tế. Thay pin chính hãng là một chi phí đáng kể, dùng làm cơ sở xin giảm giá hoặc trả hàng.</td></tr>
+          <tr><td>Trầy xước nhiều hơn ảnh</td><td class="y">Tuỳ mức</td><td>So với ảnh trong tin đăng. Móp nặng hoặc cong vỏ thì nên trả.</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Mẫu tin nhắn tiếng Nhật</h3>
+      <div class="tool">
+        <h4>Hỏi trước khi hàng về</h4>
+        <div class="code"><pre class="jp">ご購入させていただきました。到着前にいくつか確認させてください。
+① 本体のシリアル番号を教えていただけますか。
+②「探す（Find My）」をオフにし、Apple IDからサインアウト済みでしょうか。
+③ 会社や学校などで管理（MDM／Apple Business Manager）されていた端末ではないでしょうか。
+④ 修理歴、AppleCare+の有無、購入時の領収書の有無を教えてください。
+お手数をおかけしますが、よろしくお願いいたします。</pre><button class="small cp" type="button">Copy</button></div>
+      </div>
+      <div class="tool">
+        <h4>Báo Activation Lock</h4>
+        <div class="code"><pre class="jp">商品が届きました。ありがとうございます。
+初期設定を進めたところ、前の所有者様のApple IDを求める「アクティベーションロック」の画面が表示され、使用できない状態です（動画で記録しております）。
+お手数ですが、iCloud.com の「デバイスを探す」から、このMacを選択して「このデバイスを削除」していただけますでしょうか。
+解除が難しい場合は、返品についてご相談させてください。受取評価はまだしておりません。</pre><button class="small cp" type="button">Copy</button></div>
+      </div>
+      <div class="tool">
+        <h4>Báo Remote Management (MDM)</h4>
+        <div class="code"><pre class="jp">商品が届きました。ありがとうございます。
+初期設定中に「リモートマネジメント」の画面が表示され、組織の管理（MDM）下にある端末であることが分かりました（画面は動画で記録しております）。
+商品説明に記載がなかったため、管理元の組織からの登録解除が可能かご確認いただけますでしょうか。
+解除が難しい場合は、返品・返金をお願いしたく存じます。受取評価はまだしておりません。</pre><button class="small cp" type="button">Copy</button></div>
+      </div>
+      <div class="tool">
+        <h4>Báo lỗi / khác mô tả</h4>
+        <div class="code"><pre class="jp">商品が届きました。ありがとうございます。
+動作確認をしたところ、商品説明に記載のない不具合がありました。
+・内容：［例：画面にドット抜けがある／バッテリー最大容量が○%／○○ポートが認識しない］
+写真・動画で記録しております。
+返品（または対応）についてご相談させていただけますでしょうか。受取評価はまだしておりません。</pre><button class="small cp" type="button">Copy</button></div>
+      </div>
+    </section>
+
+    <section class="phase" id="src" data-title="Nguồn">
+      <div class="phase-head"><span class="phase-no">··</span><h2>Nguồn tham khảo</h2></div>
+      <ul class="src">
+        <li><a href="https://help.jp.mercari.com/guide/articles/1640/" target="_blank" rel="noopener">Mercari ヘルプ: 受取評価がされない（thời hạn tự hoàn tất giao dịch）</a></li>
+        <li><a href="https://support.apple.com/en-us/102488" target="_blank" rel="noopener">Apple: Apple Diagnostics for Repair (Diagnostics &amp; Repair trên Mac chip Apple)</a></li>
+        <li><a href="https://support.apple.com/en-au/123123" target="_blank" rel="noopener">Apple: About Mac parts and service history</a></li>
+        <li><a href="https://checkcoverage.apple.com" target="_blank" rel="noopener">Apple: Check Coverage</a></li>
+        <li><a href="https://twocanoes.com/automating-mac-automatic-device-enrollment-status" target="_blank" rel="noopener">Twocanoes: Automated Device Enrollment status</a></li>
+        <li><a href="https://beebom.com/buying-used-mac-checklist/amp/" target="_blank" rel="noopener">Beebom: Buying a used MacBook checklist</a></li>
+      </ul>
+      <footer>Tiến độ tick chỉ lưu trên trình duyệt đang mở trang. Mở trên điện thoại và trên MacBook sẽ là hai bản riêng.</footer>
+    </section>
+  </main>
+</div>
+
+
+<script>
+(function(){
+  var KEY='mbp-m4pro-check-v2';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){store={}}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+
+  var phases=[].slice.call(document.querySelectorAll('section.phase'));
+  var toc=document.getElementById('toc');
+  phases.forEach(function(s){
+    if(!s.querySelector('ul.check'))return;
+    var li=document.createElement('li');
+    var a=document.createElement('a');a.href='#'+s.id;
+    a.innerHTML='<span></span><span class="n"></span>';
+    a.firstChild.textContent=s.querySelector('.phase-no').textContent+'  '+s.dataset.title;
+    li.appendChild(a);toc.appendChild(li);s._toc=a;
+  });
+
+  var boxes=[].slice.call(document.querySelectorAll('ul.check input[type=checkbox]'));
+  boxes.forEach(function(b){
+    b.checked=!!store[b.id];
+    b.addEventListener('change',function(){store[b.id]=b.checked;save();render()});
+  });
+  function render(){
+    var done=0;
+    boxes.forEach(function(b){b.closest('li').classList.toggle('on',b.checked);if(b.checked)done++});
+    var pct=boxes.length?Math.round(done/boxes.length*100):0;
+    ['rail','m'].forEach(function(p){
+      document.getElementById(p+'Bar').style.width=pct+'%';
+      document.getElementById(p+'Count').textContent=done+' / '+boxes.length+' mục · '+pct+'%';
+    });
+    phases.forEach(function(s){
+      var bs=s.querySelectorAll('ul.check input');if(!bs.length)return;
+      var d=0;bs.forEach(function(b){if(b.checked)d++});
+      var txt=d+'/'+bs.length;
+      s.querySelector('.pc').textContent=txt;
+      if(s._toc){s._toc.querySelector('.n').textContent=txt;s._toc.classList.toggle('done',d===bs.length)}
+    });
+  }
+  render();
+
+  var rc=document.getElementById('resetConfirm');
+  document.getElementById('resetAll').onclick=function(){rc.hidden=false};
+  document.getElementById('resetNo').onclick=function(){rc.hidden=true};
+  document.getElementById('resetYes').onclick=function(){store={};save();boxes.forEach(function(b){b.checked=false});render();rc.hidden=true};
+
+  // copy buttons
+  document.querySelectorAll('.cp').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.parentNode.querySelector('pre');var text=pre.textContent;
+      function ok(){btn.textContent='Đã copy';setTimeout(function(){btn.textContent='Copy'},1400)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Đã chọn, Cmd+C';setTimeout(function(){btn.textContent='Copy'},2000)}
+      try{navigator.clipboard.writeText(text).then(ok,fallback)}catch(e){fallback()}
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
